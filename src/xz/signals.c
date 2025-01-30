@@ -136,7 +136,7 @@ signals_init(void)
 #endif
 
 
-#ifndef __VMS
+#if !defined(__VMS) && !defined(__wasm__)
 extern void
 signals_block(void)
 {

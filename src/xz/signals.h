@@ -20,7 +20,8 @@ extern volatile sig_atomic_t user_abort;
 extern void signals_init(void);
 
 
-#if (defined(_WIN32) && !defined(__CYGWIN__)) || defined(__VMS)
+#if (defined(_WIN32) && !defined(__CYGWIN__)) || defined(__VMS) \
+		|| defined(__wasm__)
 #	define signals_block() do { } while (0)
 #	define signals_unblock() do { } while (0)
 #else
